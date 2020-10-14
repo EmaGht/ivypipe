@@ -1,2 +1,5 @@
-<div>"TEST" From Input, this should be "This is a test 1": <span>{{Text}}</span></div>
+<div>"TEST" From Input, this should be "This is a test": <span>{{Text}}</span></div>
 <div>"TEST 2" From Child, this should be "This is a test 2": <span>{{'TEST2' | whenthen}}</span></div>
+<div>"TEST" From Input, this should be "This is a test": <span>
+    <ng-content *ngTemplateOutlet="template_ref"></ng-content>
+</span></div>

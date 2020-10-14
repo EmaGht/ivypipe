@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Injectable, ContentChild } from '@angular/core';
 import { WhenThenService } from './whenthen.service';
 
+@Injectable()
 class ComponentExtendedWhenThenService extends WhenThenService {
   constructor() {
     super();
@@ -11,10 +12,11 @@ class ComponentExtendedWhenThenService extends WhenThenService {
 
 @Component({
   selector: 'app-component-child',
-  providers: [{ provide: WhenThenService, useClass: ComponentExtendedWhenThenService }],
+  viewProviders: [{ provide: WhenThenService, useClass: ComponentExtendedWhenThenService }],
   templateUrl: './child.component.html',
 })
 export class ChildComponent {
 
   @Input() Text: string;
+  @ContentChild("template") template_ref;
 }

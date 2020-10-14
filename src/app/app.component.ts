@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { WhenThenService } from './whenthen.service';
 
+@Injectable()
 class BaseWhenThen extends WhenThenService {
   constructor() {
     super();
@@ -11,7 +12,7 @@ class BaseWhenThen extends WhenThenService {
 
 @Component({
   selector: 'app-root',
-  providers: [{ provide: WhenThenService, useClass: BaseWhenThen }],
+  viewProviders: [{ provide: WhenThenService, useClass: BaseWhenThen }],
   templateUrl: './app.component.html'
 })
 export class AppComponent {
